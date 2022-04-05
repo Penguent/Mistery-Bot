@@ -1,0 +1,26 @@
+const Discord = require("discord.js")
+require("dotenv").config()
+
+const TOKEN = "OTU3MDQ5MzY4OTU4MTA3NjQ4.Yj5Hrg.f_qyuXnxRiVmL8ipVZrZp2qmcNM"
+
+const client = new Discord.Client({
+    intents: [
+        "GUILDS",
+        "GUILD_MESSAGES"
+    ]
+})
+
+client.on("ready",()=>{
+    console.log(`Logged in as ${client.user.tag}`)
+})
+
+client.on("messageCreate", (message) =>{
+    if (message.content == "hi") {
+        message.reply ("Hello World!")
+    }
+
+})
+
+
+
+client.login(process.env.TOKEN)
